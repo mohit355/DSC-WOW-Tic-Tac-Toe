@@ -148,6 +148,13 @@ public class StartPage implements ActionListener {
         symbol.setBackground(Color.cyan);
         lbl.add(symbol);
 
+        JLabel n1symbol=new JLabel("",ic1,JLabel.CENTER);
+        n1symbol.setBounds(100,70,120,120);
+        symbol.add(n1symbol);
+
+        JLabel n2symbol=new JLabel("",ic2,JLabel.CENTER);
+        n2symbol.setBounds(100,240,120,120);
+        symbol.add(n2symbol);
 
         if(UserOrComputer.user_clicked){
             JLabel n1=new JLabel("Player1 Symbol ");
@@ -155,18 +162,37 @@ public class StartPage implements ActionListener {
             n1.setFont(new Font("Times New Roman",Font.BOLD,22));
             symbol.add(n1);
 
-            JLabel n1symbol=new JLabel("",ic1,JLabel.CENTER);
-            n1symbol.setBounds(100,70,120,120);
-            symbol.add(n1symbol);
-
             JLabel n2=new JLabel("Player2 Symbol ");
             n2.setBounds(30,200,200,30);
             n2.setFont(new Font("Times New Roman",Font.BOLD,22));
             symbol.add(n2);
+        }
+        else{
 
-            JLabel n2symbol=new JLabel("",ic2,JLabel.CENTER);
-            n2symbol.setBounds(100,240,120,120);
-            symbol.add(n2symbol);
+            String name=UserName.user_name_tf.getText();
+
+            JLabel playerName=new JLabel("Player1 Name : "+name);
+            JLabel compName=new JLabel("Player2 Name : Computer AI");
+            playerName.setFont(new Font("Times New Roman",Font.BOLD,30));
+            compName.setFont(new Font("Times New Roman",Font.BOLD,30));
+            playerName.setForeground(Color.BLUE);
+            compName.setForeground(Color.BLUE);
+            playerName.setBounds(30,70,500,40);
+            compName.setBounds(30,150,400,40);
+            lbl.add(playerName);
+            lbl.add(compName);
+
+            JLabel n1=new JLabel(name+"'s Symbol");
+            n1.setBounds(30,50,200,30);
+            n1.setFont(new Font("Times New Roman",Font.BOLD,22));
+            symbol.add(n1);
+
+            JLabel n2=new JLabel("Computer's Symbol ");
+            n2.setBounds(30,200,200,30);
+            n2.setFont(new Font("Times New Roman",Font.BOLD,22));
+            symbol.add(n2);
+
+
         }
 
 
