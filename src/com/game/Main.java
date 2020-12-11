@@ -6,7 +6,6 @@ import java.awt.event.*;
 
 public class Main implements ActionListener {
 
-
     static JFrame frame;
     static JButton next;
     static JButton about;
@@ -99,7 +98,7 @@ public class Main implements ActionListener {
         }
         else if (e.getSource()==next){
             frame.dispose();
-//            new UserOrComputer();
+            new UserOrComputer();
         }
     }
 
