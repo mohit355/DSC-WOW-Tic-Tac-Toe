@@ -148,13 +148,6 @@ public class StartPage implements ActionListener {
         symbol.setBackground(Color.cyan);
         lbl.add(symbol);
 
-        JLabel n1symbol=new JLabel("",ic1,JLabel.CENTER);
-        n1symbol.setBounds(100,70,120,120);
-        symbol.add(n1symbol);
-
-        JLabel n2symbol=new JLabel("",ic2,JLabel.CENTER);
-        n2symbol.setBounds(100,240,120,120);
-        symbol.add(n2symbol);
 
         if(UserOrComputer.user_clicked){
             JLabel n1=new JLabel("Player1 Symbol ");
@@ -162,10 +155,18 @@ public class StartPage implements ActionListener {
             n1.setFont(new Font("Times New Roman",Font.BOLD,22));
             symbol.add(n1);
 
+            JLabel n1symbol=new JLabel("",ic1,JLabel.CENTER);
+            n1symbol.setBounds(100,70,120,120);
+            symbol.add(n1symbol);
+
             JLabel n2=new JLabel("Player2 Symbol ");
             n2.setBounds(30,200,200,30);
             n2.setFont(new Font("Times New Roman",Font.BOLD,22));
             symbol.add(n2);
+
+            JLabel n2symbol=new JLabel("",ic2,JLabel.CENTER);
+            n2symbol.setBounds(100,240,120,120);
+            symbol.add(n2symbol);
         }
         else{
 
@@ -187,21 +188,73 @@ public class StartPage implements ActionListener {
             n1.setFont(new Font("Times New Roman",Font.BOLD,22));
             symbol.add(n1);
 
+            JLabel n1symbol=new JLabel("",ic1,JLabel.CENTER);
+            n1symbol.setBounds(100,70,120,120);
+            symbol.add(n1symbol);
+
             JLabel n2=new JLabel("Computer's Symbol ");
             n2.setBounds(30,200,200,30);
             n2.setFont(new Font("Times New Roman",Font.BOLD,22));
             symbol.add(n2);
 
+            JLabel n2symbol=new JLabel("",ic2,JLabel.CENTER);
+            n2symbol.setBounds(100,240,120,120);
+            symbol.add(n2symbol);
+
 
         }
-
 
     }
 
 
     /* Defining abstarct methods of interface ActionListener */
-
     public void actionPerformed(ActionEvent e) {
+
+        if(e.getSource()==start){
+            if(UserOrComputer.user_clicked){
+                if(user1tf.getText().length()>=3){
+                    allChecked1=true;
+                }
+                if(user2tf.getText().length()>=3){
+                    allChecked2=true;
+                }
+
+                if(allChecked1 && allChecked2){
+                    matchPattern=(String) matchType.getSelectedItem();
+                    if(matchPattern.equals("One Game")){
+                        frame.dispose();
+                        for(int p1=0;p1<9;p1++){
+                            OneGame.values_array[p1]=' ';
+                            OneGame.values_array_copy[p1]=' ';
+                        }
+                        OneGame.turn=true;
+                        new OneGame();
+
+                    }
+
+                }
+                else {
+
+                    JOptionPane.showMessageDialog(null,"User name must be greater than 3","Error",JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+            else{
+                matchPattern=(String) matchType.getSelectedItem();
+                if(matchPattern.equals("One Game")){
+                    for(int p=0;p<9;p++){
+                        OneGame.values_array[p]=' ';
+                        OneGame.values_array_copy[p]=' ';
+                    }
+                    OneGame.turn=true;
+                    frame.dispose();
+                    new OneGame();
+                }
+
+            }
+
+
+        }
+
 
         if(e.getSource()==back){
             frame.dispose();
