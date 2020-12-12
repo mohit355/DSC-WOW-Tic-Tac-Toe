@@ -211,7 +211,8 @@ public class StartPage implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if(e.getSource()==start){
-            ThreeGame.gameNumber=1;
+//            ThreeGame.gameNumber=1;
+//            FiveGame.gameNumber=1;
 
             if(UserOrComputer.user_clicked){
                 if(user1tf.getText().length()>=3){
@@ -243,6 +244,15 @@ public class StartPage implements ActionListener {
 
                         new ThreeGame();
                     }
+                    else if(matchPattern.equals("5 Game series")){
+                        frame.dispose();
+                        for(int p1=0;p1<9;p1++){
+                            FiveGame.values_array[p1]=' ';
+                            FiveGame.values_array_copy[p1]=' ';
+                        }
+
+                        new FiveGame();
+                    }
 
                 }
                 else {
@@ -270,6 +280,16 @@ public class StartPage implements ActionListener {
                     }
 
                     new ThreeGame();
+                }
+                else if(matchPattern.equals("5 Game series")){
+                    frame.dispose();
+                    FiveGame.turn=true;
+                    for(int p=0;p<9;p++){
+                        FiveGame.values_array[p]=' ';
+                        FiveGame.values_array_copy[p]=' ';
+                    }
+                    new FiveGame();
+
                 }
 
 
