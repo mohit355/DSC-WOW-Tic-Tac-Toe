@@ -211,6 +211,8 @@ public class StartPage implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if(e.getSource()==start){
+            ThreeGame.gameNumber=1;
+
             if(UserOrComputer.user_clicked){
                 if(user1tf.getText().length()>=3){
                     allChecked1=true;
@@ -231,6 +233,16 @@ public class StartPage implements ActionListener {
                         new OneGame();
 
                     }
+                    else if(matchPattern.equals("3 Game series")){
+                        frame.dispose();
+                        for(int p1=0;p1<9;p1++){
+                            ThreeGame.values_array[p1]=' ';
+                            ThreeGame.values_array_copy[p1]=' ';
+                        }
+
+
+                        new ThreeGame();
+                    }
 
                 }
                 else {
@@ -249,6 +261,17 @@ public class StartPage implements ActionListener {
                     frame.dispose();
                     new OneGame();
                 }
+                else if(matchPattern.equals("3 Game series")){
+                    frame.dispose();
+                    ThreeGame.turn=true;
+                    for(int p=0;p<9;p++){
+                        ThreeGame.values_array[p]=' ';
+                        ThreeGame.values_array_copy[p]=' ';
+                    }
+
+                    new ThreeGame();
+                }
+
 
             }
 
