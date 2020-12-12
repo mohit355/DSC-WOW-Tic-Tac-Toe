@@ -165,9 +165,10 @@ public class OneGame implements ActionListener  {
         }
         user1SymbolLable.setBounds(0,10,240,40);
         user1SymbolLable.setFont(new Font("Times New Roman",Font.BOLD,25));
+        scoreBoard.add(user1SymbolLable);
+
         user2SymbolLabel.setBounds(260,10,240,40);
         user2SymbolLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
-        scoreBoard.add(user1SymbolLable);
         scoreBoard.add(user2SymbolLabel);
 
         JLabel vs=new JLabel("VS",JLabel.CENTER);
@@ -176,13 +177,12 @@ public class OneGame implements ActionListener  {
         scoreBoard.add(vs);
 
         user1Symbol=new JLabel("",ic11,JLabel.CENTER);
-        user2Symbol=new JLabel("",ic2,JLabel.CENTER);
         user1Symbol.setBounds(0,60,240,120);
-        user2Symbol.setBounds(260,60,240,120);
         scoreBoard.add(user1Symbol);
+
+        user2Symbol=new JLabel("",ic2,JLabel.CENTER);
+        user2Symbol.setBounds(260,60,240,120);
         scoreBoard.add(user2Symbol);
-
-
 
         c.validate();
         panel.validate();
@@ -191,14 +191,12 @@ public class OneGame implements ActionListener  {
 
     }
 
-
     public void actionPerformed(ActionEvent e) {
 
         if(e.getSource()==quit){
             frame.dispose();
             if(!UserOrComputer.user_clicked) {
 
-                new StartPage();
                 StartPage.setGameType();
                 StartPage.buttons();
                 turn=true;
@@ -224,7 +222,6 @@ public class OneGame implements ActionListener  {
                 noWinner=0;
                 for(int p1=0;p1<9;p1++){
                     values_array[p1]=' ';
-
                 }
                 game1r1="";
                 game1r2="";
@@ -260,19 +257,19 @@ public class OneGame implements ActionListener  {
                     if(e.getSource()==btn[i]) {
                         if (btn[i].getIcon() == null) {
                             values_array[i] = 'X';
-                            btn[i].setIcon(ic1);     // ic1 foe use and ic2 for computer
+                            btn[i].setIcon(ic1);     // ic1 for user and ic2 for computer
                             turn = false;
 
                             winner = isWinner(values_array, 'X');
                             if (winner) {
-                                if (UserOrComputer.user_clicked) {
+                                if (UserOrComputer.user_clicked) {  // when u r playing with frd
                                     winnerName.setText(StartPage.user1tf.getText()+" WON");
                                     game1r1="WON";
                                     game1r2="LOST";
 
                                     user2Symbol.setEnabled(false);
                                     user2SymbolLabel.setEnabled(false);
-                                } else {
+                                } else {                                    // when you are playing with comp
                                     winnerName.setText(UserName.user_name_tf.getText()+" WON");
                                     game1r1="WON";
                                     game1r2="LOST";
@@ -281,12 +278,11 @@ public class OneGame implements ActionListener  {
                                 noWinner = 0;
                                 break;
                             } else {
-                                noWinner = noWinner + 1;
+                                noWinner = noWinner + 1;    // onr more box filled
                                 if (noWinner == 9) {
-                                    winnerName.setText("MATCH TIE");
+                                    winnerName.setText("MATCH TIE");  // all box filled
                                     game1r1="TIE";
                                     game1r2="TIE";
-
                                     lockBoard();
                                     break;
                                 }
@@ -300,7 +296,7 @@ public class OneGame implements ActionListener  {
                         }
                         if(!UserOrComputer.user_clicked && !turn){
                             int d= 0;
-                            d = compLogic();
+                            d = compLogic();   // function for computer turn
 
                             if(d==0){
                                 winnerName.setText("MATCH TIE");
