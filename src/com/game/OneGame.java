@@ -200,7 +200,7 @@ public class OneGame implements ActionListener  {
                 StartPage.setGameType();
                 StartPage.buttons();
                 turn=true;
-                noWinner=0;
+                noWinner=0;         // number of moves
                 edgeOpened.clear();
                 cornersOpened.clear();
                 blank_space.clear();
@@ -260,7 +260,7 @@ public class OneGame implements ActionListener  {
                             btn[i].setIcon(ic1);     // ic1 for user and ic2 for computer
                             turn = false;
 
-                            winner = isWinner(values_array, 'X');
+                            winner = isWinner(values_array, 'X');   // check for win if yes then declare winner
                             if (winner) {
                                 if (UserOrComputer.user_clicked) {  // when u r playing with frd
                                     winnerName.setText(StartPage.user1tf.getText()+" WON");

@@ -214,7 +214,7 @@ public class StartPage implements ActionListener {
 //            ThreeGame.gameNumber=1;
 //            FiveGame.gameNumber=1;
 
-            if(UserOrComputer.user_clicked){
+            if(UserOrComputer.user_clicked){      // check for name length
                 if(user1tf.getText().length()>=3){
                     allChecked1=true;
                 }
@@ -222,34 +222,34 @@ public class StartPage implements ActionListener {
                     allChecked2=true;
                 }
 
-                if(allChecked1 && allChecked2){
-                    matchPattern=(String) matchType.getSelectedItem();
+                if(allChecked1 && allChecked2){     // run when both name are valid
+                    matchPattern=(String) matchType.getSelectedItem();      // get the match type
                     if(matchPattern.equals("One Game")){
                         frame.dispose();
-                        for(int p1=0;p1<9;p1++){
-                            OneGame.values_array[p1]=' ';
-                            OneGame.values_array_copy[p1]=' ';
-                        }
+//                        for(int p1=0;p1<9;p1++){
+//                            OneGame.values_array[p1]=' ';
+//                            OneGame.values_array_copy[p1]=' ';
+//                        }
                         OneGame.turn=true;
                         new OneGame();
 
                     }
                     else if(matchPattern.equals("3 Game series")){
                         frame.dispose();
-                        for(int p1=0;p1<9;p1++){
-                            ThreeGame.values_array[p1]=' ';
-                            ThreeGame.values_array_copy[p1]=' ';
-                        }
+//                        for(int p1=0;p1<9;p1++){
+//                            ThreeGame.values_array[p1]=' ';
+//                            ThreeGame.values_array_copy[p1]=' ';
+//                        }
 
 
                         new ThreeGame();
                     }
                     else if(matchPattern.equals("5 Game series")){
                         frame.dispose();
-                        for(int p1=0;p1<9;p1++){
-                            FiveGame.values_array[p1]=' ';
-                            FiveGame.values_array_copy[p1]=' ';
-                        }
+//                        for(int p1=0;p1<9;p1++){
+//                            FiveGame.values_array[p1]=' ';
+//                            FiveGame.values_array_copy[p1]=' ';
+//                        }
 
                         new FiveGame();
                     }
@@ -263,10 +263,10 @@ public class StartPage implements ActionListener {
             else{
                 matchPattern=(String) matchType.getSelectedItem();
                 if(matchPattern.equals("One Game")){
-                    for(int p=0;p<9;p++){
-                        OneGame.values_array[p]=' ';
-                        OneGame.values_array_copy[p]=' ';
-                    }
+//                    for(int p=0;p<9;p++){
+//                        OneGame.values_array[p]=' ';
+//                        OneGame.values_array_copy[p]=' ';
+//                    }
                     OneGame.turn=true;
                     frame.dispose();
                     new OneGame();
@@ -274,20 +274,20 @@ public class StartPage implements ActionListener {
                 else if(matchPattern.equals("3 Game series")){
                     frame.dispose();
                     ThreeGame.turn=true;
-                    for(int p=0;p<9;p++){
-                        ThreeGame.values_array[p]=' ';
-                        ThreeGame.values_array_copy[p]=' ';
-                    }
+//                    for(int p=0;p<9;p++){
+//                        ThreeGame.values_array[p]=' ';
+//                        ThreeGame.values_array_copy[p]=' ';
+//                    }
 
                     new ThreeGame();
                 }
                 else if(matchPattern.equals("5 Game series")){
                     frame.dispose();
                     FiveGame.turn=true;
-                    for(int p=0;p<9;p++){
-                        FiveGame.values_array[p]=' ';
-                        FiveGame.values_array_copy[p]=' ';
-                    }
+//                    for(int p=0;p<9;p++){
+//                        FiveGame.values_array[p]=' ';
+//                        FiveGame.values_array_copy[p]=' ';
+//                    }
                     new FiveGame();
 
                 }
