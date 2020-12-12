@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DSC-WOW-Tic-Tac-Toe:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DSC_WOW_Tic_Tac_Toe_jar</output-path>
+    <root id="archive" name="DSC-WOW-Tic-Tac-Toe.jar">
+      <element id="module-output" name="DSC-WOW-Tic-Tac-Toe" />
+    </root>
+  </artifact>
+</component>
