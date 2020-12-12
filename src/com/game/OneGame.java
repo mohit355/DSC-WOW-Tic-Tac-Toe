@@ -196,7 +196,7 @@ public class OneGame implements ActionListener  {
         if(e.getSource()==quit){
             frame.dispose();
             if(!UserOrComputer.user_clicked) {
-
+                new StartPage();
                 StartPage.setGameType();
                 StartPage.buttons();
                 turn=true;
